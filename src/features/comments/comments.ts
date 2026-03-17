@@ -39,11 +39,7 @@ export const deleteComment = createAsyncThunk(
 export const commentsSlice = createSlice({
   name: 'comments',
   initialState,
-  reducers: {
-    deleteCommentById: (state, action: PayloadAction<number>) => {
-      state.items = state.items.filter(item => item.id !== action.payload);
-    },
-  },
+  reducers: {},
   extraReducers: builder => {
     builder
       .addCase(
@@ -74,4 +70,3 @@ export const commentsSlice = createSlice({
 });
 
 export const commentsReducer = commentsSlice.reducer;
-export const { deleteCommentById } = commentsSlice.actions;

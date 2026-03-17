@@ -24,7 +24,6 @@ export const PostDetails: React.FC<Props> = ({ post }) => {
   }, [post, dispatch]);
 
   const handleDeleteCommentBy = (commentId: number) => {
-    dispatch(commentsServices.deleteCommentById(commentId));
     dispatch(commentsServices.deleteComment(commentId));
   };
 
