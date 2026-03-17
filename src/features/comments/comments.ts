@@ -32,7 +32,7 @@ export const createComment = createAsyncThunk(
 export const deleteComment = createAsyncThunk(
   'comments/deleteComment',
   (id: number) => {
-    services.deleteComment(id);
+    return services.deleteComment(id);
   },
 );
 

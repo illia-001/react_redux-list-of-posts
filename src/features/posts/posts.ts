@@ -11,7 +11,7 @@ type PostsState = {
 
 const initialState: PostsState = {
   items: [],
-  loaded: true,
+  loaded: false,
   hasError: false,
 };
 
@@ -28,6 +28,8 @@ export const postsSlice = createSlice({
     },
     removePosts: state => {
       state.items = [];
+      state.loaded = false;
+      state.hasError = false;
     },
   },
   extraReducers: builder => {

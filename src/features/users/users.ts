@@ -33,19 +33,21 @@ export const usersSlice = createSlice({
     builder
       .addCase(initUsers.fulfilled, (state, action: PayloadAction<User[]>) => {
         state.users = action.payload;
+        state.hasError = false;
+        state.loaded = true;
       })
       .addMatcher(
         (action: PayloadAction<string>) => action.type.endsWith('pending'),
         state => {
-          state.loaded = true;
           state.hasError = false;
+          state.loaded = false;
         },
       )
       .addMatcher(
         (action: PayloadAction<string>) => action.type.endsWith('rejected'),
         state => {
-          state.loaded = false;
           state.hasError = true;
+          state.loaded = true;
         },
       );
   },
